@@ -10,14 +10,6 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    thumbnail: {
-      type: String,
-      required: true,
-    },
-    videoUrl: {
-      type: String,
-      required: true,
-    },
     rating: {
       type: Number,
       default: 0,

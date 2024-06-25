@@ -2,8 +2,8 @@ import { User } from "../models/user.model.js";
 
 const createUser = async (req, res) => {
   try {
-    const { name, email } = req.body;
-    if (!name || !email) {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
       return res.status(400).json({
         message: "Please provide all required fields",
       });
@@ -22,9 +22,10 @@ const createUser = async (req, res) => {
     const user = await User.create({
       name,
       email,
+      password,
     });
 
-    const createdUser = await User.findById(user?._id);
+    const createdUser = await User.findById(user?._id).select("-password");
 
     if (!createdUser) {
       return res.status(500).json({

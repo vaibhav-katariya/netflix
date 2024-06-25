@@ -16,11 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 //Router
 
 import movieRouter from "./routes/movie.route.js";
-import userRouter from "./routes/user.route.js"
-
+import userRouter from "./routes/user.route.js";
+import seriesRouter from "./routes/series.route.js";
 
 app.use("/api/v1/movie", movieRouter);
-app.use("/api/v1/user", userRouter)
-
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/series", seriesRouter);
 
 export { app };

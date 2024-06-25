@@ -18,7 +18,7 @@ const createMovie = async (req, res) => {
 
     const createdMovie = await Movie.findById(newMovie?._id);
 
-    if (!createMovie) {
+    if (!createdMovie) {
       return res.status(500).json({
         message: "Failed to create movie",
       });
